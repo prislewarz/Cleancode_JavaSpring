@@ -7,6 +7,8 @@ import java.util.List;
 
 /**
  * @author Happy
+ *
+ * 중계수수료 정책 인터페이스
  */
 public interface BrokeragePolicy {
 

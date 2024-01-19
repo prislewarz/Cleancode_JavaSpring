@@ -2,6 +2,7 @@ package com.phangji.houseutils.policy;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import org.springframework.lang.Nullable;
 
 /**
  * @author Happy
@@ -13,6 +14,8 @@ import lombok.Getter;
 public class BrokerageRule {
     private Long lessThan;
     private Double brokeragePercent;
+
+    @Nullable //null이 될 수 있는 상황에서 null-safe 하게 처리.
     private Long limitAmount;
 
     public BrokerageRule(Long lessThan, Double brokeragePercent) {
