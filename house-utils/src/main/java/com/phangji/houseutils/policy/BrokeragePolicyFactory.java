@@ -7,7 +7,7 @@ import com.phangji.houseutils.exception.HouseUtilsException;
 /**
  * @author Happy
  */
-public class BrokeragePolicyFactory { //액션타입(매매, 렌트)에 따라 정책을 선택(생성)해주는 클래스
+public class BrokeragePolicyFactory { //액션타입(매매, 임대차)에 따라 정책을 선택(생성)해주는 클래스
     //두 정책(클래스)을 객체 생성할 필요 없이 static 메서드로 호출
     private static final RentBrokeragePolicy rentBrokeragePolicy = new RentBrokeragePolicy(); //new: 클래스 타입의 인스턴스 (객체)를 생성해주는 역할
     private static final PurchaseBrokeragePolicy purchaseBrokeragePolicy = new PurchaseBrokeragePolicy();
