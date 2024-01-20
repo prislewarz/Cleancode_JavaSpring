@@ -12,7 +12,7 @@ public class BrokeragePolicyTest {
     RentBrokeragePolicy rentBrokeragePolicy;
 
     @BeforeEach
-    public void setup() {
+    public void setup() { //JUnit 은 무조건 public 으로만 선언해야 함
         purchaseBrokeragePolicy = new PurchaseBrokeragePolicy();
         rentBrokeragePolicy = new RentBrokeragePolicy();
     }
