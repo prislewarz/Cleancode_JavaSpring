@@ -10,17 +10,17 @@ import org.springframework.lang.Nullable;
  * 가격이 특정 범위일 때 상한효율과 상한금액 가지는 클래스(규칙)
  */
 @AllArgsConstructor //lombok 플러그인 어노테이션. Constrcutor를 하나하나 짤 필요 없도록 함.
-@Getter
+@Getter //lessThan 가져올 수 있도록
 public class BrokerageRule {
-    private Long lessThan;
+    private Long lessThan; //함수 객체화
     private Double brokeragePercent;
 
-    @Nullable //null이 될 수 있는 상황에서 null-safe 하게 처리.
+    @Nullable //null이 될 수 있는 상황에서 null-safe 하게 처리. 상한 금액이 없으면 최대값을 가짐
     private Long limitAmount;
 
     public BrokerageRule(Long lessThan, Double brokeragePercent) {
         this(lessThan, brokeragePercent, Long.MAX_VALUE);
-    }
+    } // null대신 차라리 MAX값을 넣는 게 낫다. null은 위험요소 존재.
 
     public Long calcMaxBrokerage(Long price) {
         return Math.min(multiplyPercent(price), limitAmount);

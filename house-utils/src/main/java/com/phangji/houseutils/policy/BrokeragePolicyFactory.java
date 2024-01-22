@@ -15,9 +15,9 @@ public class BrokeragePolicyFactory { //액션타입(매매, 임대차)에 따�
     public static BrokeragePolicy of(ActionType actionType) {
         switch (actionType) {
             case RENT:
-                return rentBrokeragePolicy;
+                return rentBrokeragePolicy; //return new policy는 static으로 호출(매번 생성할 필요 없어짐)
             case PURCHASE:
-                return purchaseBrokeragePolicy;
+                return purchaseBrokeragePolicy; //return new policy는 static으로 호출(매번 생성할 필요 없어짐)
             default: //어느 정책에도 해당하지 않을 시 에러 던지기
                 throw new HouseUtilsException(ErrorCode.INVALID_REQUEST, "해당 actionType에 대한 정책이 존재하지 않습니다.");
                 //IllegalArgumentException 보다 훨씬 직관적(커스텀 에러코드)

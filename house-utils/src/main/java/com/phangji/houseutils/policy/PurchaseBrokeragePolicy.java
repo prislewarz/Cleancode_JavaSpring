@@ -11,18 +11,18 @@ import java.util.List;
  * <p>
  * 매매일 때 중개수수료를 계산해주는 클래스
  */
-@Getter
+@Getter //인터페이스에서 접근할 수 있도록 규칙들을 가져옴
 public class PurchaseBrokeragePolicy implements BrokeragePolicy { //인터페이스 호출이 들어가기 때문에 implements
-    private final List<BrokerageRule> rules;
+    private final List<BrokerageRule> rules; //정책이 규칙을 가진다: 객체와 객체간 관계(규칙을 통한 계산)
     //Todo: 가격을 받아서 중계수수료를 계산한다.
 
-    public PurchaseBrokeragePolicy() {
-        rules = Arrays.asList(
+    public PurchaseBrokeragePolicy() { //생성자
+        rules = Arrays.asList( //if, else if, else의 반복되는 부분을 함수 객체화하여 코드 개선: lessThan
                 new BrokerageRule(50_000_000L, 0.6, 250_000L),
                 new BrokerageRule(200_000_000L, 0.5, 800_000L),
                 new BrokerageRule(600_000_000L, 0.4),
                 new BrokerageRule(900_000_000L, 0.5),
-                new BrokerageRule(Long.MAX_VALUE, 0.9)
+                new BrokerageRule(Long.MAX_VALUE, 0.9) //상한 금액 없으면 최대값
         );
     }
 }
